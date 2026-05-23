@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merve Lifestyle Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="screen-backdrop"></div>
+
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <h2>Kategoriler</h2>
+            <div class="close-menu" onclick="toggleMenu()">×</div>
+        </div>
+        <div class="menu-items" id="menuItems"></div>
+    </div>
+
+    <div class="screen home-screen" id="homeScreen">
+        <div class="top-header">
+            <div class="menu-btn" onclick="toggleMenu()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="16" y2="18"></line></svg>
+            </div>
+            <div class="profile-area">
+                <img src="pinterest.jpg" alt="Merve">
+            </div>
+        </div>
+
+        <div class="welcome-section">
+            <h1>Selam Merve</h1>
+            <p id="totalStats">Bugün neler yapıyoruz?</p>
+        </div>
+
+        <div class="scroll-container">
+            <div class="categories-grid" id="categoriesGrid"></div>
+        </div>
+    </div>
+
+    <div class="screen detail-screen" id="detailScreen">
+        <div class="detail-header">
+            <div class="back-btn" onclick="closeCategory()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </div>
+            <span id="detailCatTitle">Yapılacaklar</span>
+        </div>
+
+        <div class="task-container">
+            <div class="task-main-header">
+                <h2 id="categoryName">Yapılacaklar</h2>
+                <p id="taskCount">0 Görev</p>
+            </div>
+            
+            <div class="task-scroll">
+                <div class="task-list" id="taskList"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay" onclick="openAddTaskModal()"></div>
+
+    <div class="add-task-modal" id="addTaskModal">
+        <div class="modal-handle"></div>
+        
+        <div class="modal-header-section" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 style="font-weight: 800; color: #1a1a1a; margin: 0;">Yeni Görev Ekle</h3>
+            <div class="close-modal-btn" onclick="openAddTaskModal()" style="
+                cursor: pointer; 
+                font-size: 20px; 
+                color: #999; 
+                width: 32px; 
+                height: 32px; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+                background: #f5f5f5; 
+                border-radius: 50%;
+                line-height: 1;
+                font-weight: bold;
+            ">×</div>
+        </div>
+
+        <div class="modal-content">
+            <div class="input-group">
+                <input type="text" id="taskInput" placeholder="Ne planlıyorsun?" autocomplete="off">
+                <button class="add-confirm-btn" onclick="saveNewTask()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="fab" id="mainFab" onclick="openAddTaskModal()">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
